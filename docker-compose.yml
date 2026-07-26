@@ -1,0 +1,12 @@
+services:
+    db:
+        image: postgres
+        environment:
+            POSTGRES_PASSWORD: password
+
+    web:
+        build: .
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - "8000:8000"

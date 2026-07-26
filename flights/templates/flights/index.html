@@ -1,0 +1,26 @@
+{% extends "flights/layout.html" %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Duration (minutes)</th>
+                <th>Show Flight</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in flights %}
+                <tr>
+                    <td>{{ flight.id }}</td>
+                    <td>{{ flight.origin }}</td>
+                    <td>{{ flight.destination }}</td>
+                    <td>{{ flight.duration }}</td>
+                    <td><a href="{% url 'flight' flight.id %}">Link To Flight {{ flight.id }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
